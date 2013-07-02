@@ -1,11 +1,11 @@
 require "spec_helper"
 
-describe Mongoid::Validatable::UniquenessValidator do
+describe "Paranoia uniqueness scoped validator" do
   describe "#valid?" do
     context "when the document is a root document" do
       context "when the document is paranoid" do
         before do
-          ParanoidPost.validates(:title, :uniqueness_including_deleted => true)
+          ParanoidPost.validates(:title, uniqueness: { conditions: -> { where(deleted_at: nil) } })
         end
 
         after do
@@ -30,7 +30,7 @@ describe Mongoid::Validatable::UniquenessValidator do
         context "when the field is unique for non soft deleted docs" do
 
           before do
-            post.delete
+            post.delete!
           end
 
           let(:new_post) do

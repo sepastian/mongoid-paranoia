@@ -14,7 +14,6 @@ gem 'mongoid-paranoia'
 
 ## Changes in 4.0
 ### [Uniqueness validator is not overriding default one](https://github.com/simi/mongoid-paranoia/commit/ce69dfeeb3f625535749ac919f2f643d47f3cdf4)
-This will be changed soon - https://github.com/simi/mongoid-paranoia/issues/5.
 
 #### Old syntax:
 ```ruby
@@ -24,9 +23,8 @@ validates :title, :uniqueness => true
 
 #### New syntax:
 ```ruby
-validates :title, :uniqueness_including_deleted => true
+validates :title, uniqueness: { conditions: -> { where(deleted_at: nil) } }
 ```
-
 
 ## Usage
 
