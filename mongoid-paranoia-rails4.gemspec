@@ -4,12 +4,11 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "mongoid-paranoia"
-  gem.version       = "0.1"
-  gem.authors       = ["Durran Jordan", "Josef Šimánek"]
-  gem.email         = ["durran@gmail.com", "retro@ballgag.cz"]
-  gem.description   = %q{There may be times when you don't want documents to actually get deleted from the database, but "flagged" as deleted. Mongoid provides a Paranoia module to give you just that.}
-  gem.summary       = %q{Paranoid documents}
-  gem.homepage      = "https://github.com/simi/mongoid-paranoia"
+  gem.version       = "0.0.1.alpha"
+  gem.authors       = ["Sebastian Gassner"]
+  gem.email         = ["sebastian.gassner@gmail.com"]
+  gem.summary       = %q{A versioned release of mongoid-paranoia mainly for gem development.}
+  gem.homepage      = "https://github.com/sepastian/mongoid-paranoia"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
